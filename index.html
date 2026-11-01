@@ -92,11 +92,11 @@
   // The user chose a box, check for win, robot turn, check for win
   function handleClickInput(evt) {
     evt.target.closest('td').innerHTML = HUMAN
-    if (hasWin()) {
+    if (hasWin() || !boxes.some((box) => box.querySelector('input'))) {
       return endGame()
     }
     runRobotTurn()
-    if (hasWin()) {
+    if (hasWin() || !boxes.some((box) => box.querySelector('input'))) {
       return endGame()
     }
   }
